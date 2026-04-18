@@ -41,6 +41,7 @@
         #mesaj { 
             font-weight: bold; 
             text-align: center; 
+            /* İlk mesaj beyaz başlar, tıklandıkça değişecek */
             color: #ffffff;
             text-shadow: 0 4px 15px rgba(0,0,0,0.2);
             margin-bottom: 50px;
@@ -89,11 +90,11 @@
         }
 
         .final-glass {
-            background: rgba(255, 255, 255, 0.25);
+            background: rgba(255, 255, 255, 0.35);
             backdrop-filter: blur(20px);
             padding: 40px 25px;
             border-radius: 35px;
-            border: 1px solid rgba(255, 255, 255, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.5);
             z-index: 50;
         }
     </style>
@@ -133,68 +134,4 @@
         function evetTikla() {
             tiklamaSayisi++;
             fSize += 8;
-            evetScale += 0.2;
-            
-            const mesajEl = document.getElementById('mesaj');
-            const evetBtn = document.getElementById('evetBtn');
-            const hayirBtn = document.getElementById('hayirBtn');
-
-            mesajEl.style.fontSize = fSize + "px";
-            evetBtn.style.transform = `scale(${evetScale})`;
-
-            if(tiklamaSayisi >= 5) {
-                finalMod = true;
-                patlat();
-                mesajEl.innerHTML = "Bir gün seninle mutlu bir yuva kuracağız sevgilim. Her yeni güne birlikte uyanacağız. Her zerremle aşığım...";
-                mesajEl.classList.add("final-glass");
-                mesajEl.style.fontSize = "30px";
-                
-                evetBtn.style.display = 'none';
-                hayirBtn.style.display = 'none'; // Önce bi kaybolsun
-
-                // 4 saniye sonra geri gelsin ama artık kaçmasın
-                setTimeout(() => {
-                    hayirBtn.style.display = 'block';
-                    hayirBtn.style.position = 'relative';
-                    hayirBtn.style.top = '0';
-                    hayirBtn.style.left = '0';
-                    hayirBtn.style.marginTop = '20px';
-                    hayirBtn.style.backgroundColor = "white";
-                    hayirBtn.style.color = "#d63384";
-                    // Kaçma fonksiyonunu iptal etmek için yeni bir tıklama atıyoruz
-                    hayirBtn.onmouseover = null;
-                    hayirBtn.ontouchstart = null;
-                    hayirBtn.onclick = finalCevap;
-                }, 4000);
-            }
-        }
-
-        function kac() {
-            if(finalMod) return; // Finalde kaçmasın
-            const btn = document.getElementById('hayirBtn');
-            const newX = Math.random() * (window.innerWidth - btn.clientWidth - 20);
-            const newY = Math.random() * (window.innerHeight - btn.clientHeight - 20);
-            btn.style.position = 'fixed';
-            btn.style.left = newX + 'px';
-            btn.style.top = newY + 'px';
-        }
-
-        function finalCevap() {
-            const mesajEl = document.getElementById('mesaj');
-            mesajEl.innerHTML += "<br><br><span style='color:yellow; font-size: 36px;'>Biliyorum, ben de senin götünü yerim ♥</span>";
-            document.getElementById('hayirBtn').style.display = 'none';
-            patlat(); // Tekrar konfeti!
-        }
-
-        function patlat() {
-            var duration = 10 * 1000;
-            var animationEnd = Date.now() + duration;
-            var interval = setInterval(function() {
-              var timeLeft = animationEnd - Date.now();
-              if (timeLeft <= 0) return clearInterval(interval);
-              confetti({ particleCount: 40, spread: 360, origin: { x: Math.random(), y: Math.random() - 0.2 } });
-            }, 250);
-        }
-    </script>
-</body>
-</html>
+            evet
