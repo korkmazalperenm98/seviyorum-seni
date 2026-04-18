@@ -41,7 +41,6 @@
         #mesaj { 
             font-weight: bold; 
             text-align: center; 
-            /* İlk mesaj beyaz başlar, tıklandıkça değişecek */
             color: #ffffff;
             text-shadow: 0 4px 15px rgba(0,0,0,0.2);
             margin-bottom: 50px;
@@ -63,7 +62,8 @@
 
         #evetBtn { 
             background-color: rgba(255, 255, 255, 0.95); 
-            color: #d63384; border: none; 
+            color: #ff8c00; /* Buton yazısı turuncu */
+            border: none; 
             padding: 18px 35px; border-radius: 50px; 
             cursor: pointer; 
             font-family: 'Dancing Script', cursive;
@@ -110,28 +110,8 @@
 
     <script>
         window.onload = function() {
-            const flowerCount = 60;
+            const flowerCount = 80;
             const body = document.getElementById('body');
             const flowers = ['🌸', '💮'];
 
-            for (let i = 0; i < flowerCount; i++) {
-                let f = document.createElement('div');
-                f.className = 'flower';
-                f.innerText = flowers[Math.floor(Math.random() * flowers.length)];
-                f.style.left = Math.random() * 95 + 'vw';
-                f.style.top = Math.random() * 95 + 'vh';
-                f.style.fontSize = (Math.random() * 15 + 15) + 'px';
-                f.style.animationDuration = (Math.random() * 3 + 2) + 's';
-                body.appendChild(f);
-            }
-        };
-
-        let fSize = 36;
-        let evetScale = 1;
-        let tiklamaSayisi = 0;
-        let finalMod = false;
-
-        function evetTikla() {
-            tiklamaSayisi++;
-            fSize += 8;
-            evet
+            for (let i =
